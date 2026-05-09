@@ -1,6 +1,6 @@
-# LeadPilot 🚀
+# Nexly 🚀
 
-LeadPilot is an AI-powered B2B lead generation and cold outreach automation tool. It automatically finds potential clients, generates personalized cold emails using AI (Google Gemini / OpenAI), sends them via SMTP, and tracks responses to automatically schedule follow-ups.
+Nexly is an AI-powered B2B lead generation and cold outreach automation tool. It automatically finds potential clients, generates personalized cold emails using AI (Google Gemini / OpenAI), sends them via SMTP, and tracks responses to automatically schedule follow-ups.
 
 ## Features
 
@@ -20,8 +20,8 @@ LeadPilot is an AI-powered B2B lead generation and cold outreach automation tool
 ### 2. Installation
 Clone this repository and install the dependencies:
 ```bash
-git clone https://github.com/BttFromTb/Nexly.git leadpilot
-cd leadpilot
+git clone https://github.com/BttFromTb/Nexly.git nexly
+cd nexly
 npm install
 ```
 
@@ -54,3 +54,4 @@ By default, the server will start on `http://localhost:3000`.
 
 ## License
 MIT
+

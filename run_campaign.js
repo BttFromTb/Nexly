@@ -21,7 +21,7 @@ async function runFullCampaign() {
   console.log('\n📊 Kampanya özeti hazırlanıyor...');
   
   // 2. Özet E-postası Hazırla
-  const summarySubject = `LeadPilot Kampanya Raporu: ${industry}`;
+  const summarySubject = `Nexly Kampanya Raporu: ${industry}`;
   const summaryBody = `Merhaba Kullanici,\n\n"${industry}" sektörüne yönelik başlattığın otopilot kampanyası tamamlandı.\n\n` +
     `Sektör: ${industry}\n` +
     `Hedef: ${target}\n` +
@@ -68,3 +68,4 @@ async function runFullCampaign() {
 }
 
 runFullCampaign();
+

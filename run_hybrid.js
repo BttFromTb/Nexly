@@ -55,7 +55,7 @@ async function runHybridCampaign(industry, target, location, maxResults = 5) {
     await transporter.sendMail({
       from: `"${process.env.SMTP_FROM_NAME}" <${process.env.SMTP_USER}>`,
       to: process.env.SMTP_USER,
-      subject: `LeadPilot Kampanya Özeti: ${industry}`,
+      subject: `Nexly Kampanya Özeti: ${industry}`,
       text: `Kampanya başarıyla tamamlandı. Bulunan lead'ler için e-postalar gönderildi. Detaylar sistemde kayıtlı.`,
     });
     
@@ -66,3 +66,4 @@ async function runHybridCampaign(industry, target, location, maxResults = 5) {
 }
 
 runHybridCampaign("E-ticaret", "Sahibi", "Türkiye", 5);
+

@@ -156,10 +156,11 @@ async function start() {
   await initDatabase();
   app.listen(PORT, () => {
     console.log(`\n🚀 ═══════════════════════════════════════`);
-    console.log(`   LeadPilot v1.0 — http://localhost:${PORT}`);
+    console.log(`   Nexly v1.0 — http://localhost:${PORT}`);
     console.log(`═══════════════════════════════════════════\n`);
     startFollowUpScheduler();
   });
 }
 
 start().catch(err => { console.error('Başlatma hatası:', err); process.exit(1); });
+

@@ -29,7 +29,7 @@ export async function sendEmail(emailId) {
 
   try {
     const info = await getTransporter().sendMail({
-      from: `"${process.env.SMTP_FROM_NAME || 'LeadPilot'}" <${process.env.SMTP_USER}>`,
+      from: `"${process.env.SMTP_FROM_NAME || 'Nexly'}" <${process.env.SMTP_USER}>`,
       to: lead.email,
       subject: email.subject,
       text: email.body,
@@ -80,3 +80,4 @@ export async function testConnection() {
 }
 
 export default { sendEmail, sendBulkEmails, testConnection };
+

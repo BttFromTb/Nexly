@@ -35,7 +35,7 @@ async function runManual() {
   }
 
   // Summary email to user
-  const summarySubject = 'LeadPilot Gönderim Raporu: E-Ticaret Kampanyası';
+  const summarySubject = 'Nexly Gönderim Raporu: E-Ticaret Kampanyası';
   const summaryBody = `Merhaba Kullanici,\n\nE-ticaret kampanyası tamamlandı.\n\nBulunan Lead Sayısı: 3\nBaşarıyla Gönderilen: 2\n\nGönderilen Kişiler:\n- Amazon Advisor (Kayseri)\n- Kayseri E-Ticaret ve Danışmanlık\n\nOpenAI kotası nedeniyle e-postalar Claude tarafından yazılıp sistemin üzerinden otomatik olarak gönderilmiştir.\n\nİyi çalışmalar.`;
   
   // Send summary to user (using a dummy lead or direct SMTP)
@@ -44,3 +44,4 @@ async function runManual() {
 }
 
 runManual();
+

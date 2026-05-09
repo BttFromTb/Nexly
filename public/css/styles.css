@@ -1,5 +1,5 @@
 /* ============================================
-   LeadPilot — Premium Dark Theme
+   Nexly — Premium Dark Theme
    ============================================ */
 
 :root {
@@ -653,3 +653,4 @@ input::placeholder { color: var(--text-muted); }
   .form-row { grid-template-columns: 1fr; }
   .detail-grid { grid-template-columns: 1fr; }
 }
+

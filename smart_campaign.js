@@ -40,7 +40,7 @@ async function smartCampaign() {
     ];
     const subject = subjects[Math.floor(Math.random() * subjects.length)];
 
-    const body = `Sayın Yetkili,\n\n${companyName} bünyesinde yürüttüğünüz e-ticaret operasyonlarını yakından inceledim. \n\nSektördeki lider firmalar şu an sipariş yönetimi, lojistik takibi ve müşteri deneyimi gibi kritik süreçlerini %100 yapay zeka otomasyonuna taşırken; kurumsal yapıların manuel süreçlerde ısrar etmesi hem operasyonel maliyet hem de pazar payı kaybı anlamına geliyor.\n\nSunduğumuz AI LeadPilot sistemi ile:\n- Müşteri taleplerini saniyeler içinde AI ile yanıtlama,\n- Stok ve fiyatlandırma hatalarını sıfıra indirme,\n- Satış ekiplerinizin vaktini %60 daha verimli kullanmasını sağlıyoruz.\n\n${companyName} için hazırladığımız özel çözüm dosyasını sunmak ve kısa bir demo gerçekleştirmek isterim. \n\nUygun olduğunuz bir zaman dilimini iletirseniz takviminize ekleyebilirim.\n\nSaygılarımla,\nKullanici Baltalı\nYapay Zeka Çözümleri Uzmanı`;
+    const body = `Sayın Yetkili,\n\n${companyName} bünyesinde yürüttüğünüz e-ticaret operasyonlarını yakından inceledim. \n\nSektördeki lider firmalar şu an sipariş yönetimi, lojistik takibi ve müşteri deneyimi gibi kritik süreçlerini %100 yapay zeka otomasyonuna taşırken; kurumsal yapıların manuel süreçlerde ısrar etmesi hem operasyonel maliyet hem de pazar payı kaybı anlamına geliyor.\n\nSunduğumuz AI Nexly sistemi ile:\n- Müşteri taleplerini saniyeler içinde AI ile yanıtlama,\n- Stok ve fiyatlandırma hatalarını sıfıra indirme,\n- Satış ekiplerinizin vaktini %60 daha verimli kullanmasını sağlıyoruz.\n\n${companyName} için hazırladığımız özel çözüm dosyasını sunmak ve kısa bir demo gerçekleştirmek isterim. \n\nUygun olduğunuz bir zaman dilimini iletirseniz takviminize ekleyebilirim.\n\nSaygılarımla,\nKullanici Baltalı\nYapay Zeka Çözümleri Uzmanı`;
 
     try {
       await transporter.sendMail({
@@ -54,7 +54,7 @@ async function smartCampaign() {
                 <p>Sayın Yetkili,</p>
                 <p><strong>${companyName}</strong> bünyesinde yürüttüğünüz e-ticaret operasyonlarını yakından inceledim.</p>
                 <p>Sektördeki lider firmalar şu an sipariş yönetimi, lojistik takibi ve müşteri deneyimi gibi kritik süreçlerini %100 yapay zeka otomasyonuna taşırken; kurumsal yapıların manuel süreçlerde ısrar etmesi hem operasyonel maliyet hem de pazar payı kaybı anlamına geliyor.</p>
-                <p>Sunduğumuz <strong>AI LeadPilot</strong> sistemi ile:</p>
+                <p>Sunduğumuz <strong>AI Nexly</strong> sistemi ile:</p>
                 <ul style="background: #f9f9f9; padding: 15px 35px; border-radius: 8px;">
                   <li>Müşteri taleplerini saniyeler içinde AI ile yanıtlama</li>
                   <li>Stok ve fiyatlandırma hatalarını sıfıra indirme</li>
@@ -77,3 +77,4 @@ async function smartCampaign() {
 }
 
 smartCampaign();
+

@@ -1,5 +1,5 @@
 // ============================================
-// LeadPilot — Frontend Application
+// Nexly — Frontend Application
 // ============================================
 
 const API = '';
@@ -516,3 +516,4 @@ window.deleteLead = deleteLead;
 window.openLeadByData = (lead) => {
   if (lead.id) openLeadModal(lead.id);
 };
+
