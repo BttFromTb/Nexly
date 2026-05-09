@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadPilot — AI Müşteri Bulma Otomasyonu</title>
+  <meta name="description" content="Yapay zeka destekli müşteri bulma ve cold e-posta otomasyonu">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">⚡</div>
+      <span class="logo-text">LeadPilot</span>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-view="dashboard" id="nav-dashboard">
+        <span class="nav-icon">📊</span><span class="nav-label">Dashboard</span>
+      </button>
+      <button class="nav-item" data-view="search" id="nav-search">
+        <span class="nav-icon">🔍</span><span class="nav-label">Lead Ara</span>
+      </button>
+      <button class="nav-item" data-view="leads" id="nav-leads">
+        <span class="nav-icon">👥</span><span class="nav-label">Lead'ler</span>
+      </button>
+      <button class="nav-item" data-view="emails" id="nav-emails">
+        <span class="nav-icon">📧</span><span class="nav-label">E-postalar</span>
+      </button>
+      <button class="nav-item" data-view="activity" id="nav-activity">
+        <span class="nav-icon">📋</span><span class="nav-label">Aktivite</span>
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="nav-item" id="btn-smtp-test">
+        <span class="nav-icon">⚙️</span><span class="nav-label">SMTP Test</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
+
+    <!-- DASHBOARD VIEW -->
+    <section class="view active" id="view-dashboard">
+      <div class="view-header">
+        <h1>Dashboard</h1>
+        <p class="view-subtitle">Genel bakış ve istatistikler</p>
+      </div>
+      <div class="stats-grid" id="stats-grid">
+        <div class="stat-card" id="stat-leads">
+          <div class="stat-icon">👥</div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-total-leads">0</span>
+            <span class="stat-label">Toplam Lead</span>
+          </div>
+        </div>
+        <div class="stat-card" id="stat-emails-sent">
+          <div class="stat-icon">📧</div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-sent-emails">0</span>
+            <span class="stat-label">Gönderilen E-posta</span>
+          </div>
+        </div>
+        <div class="stat-card" id="stat-replies">
+          <div class="stat-icon">💬</div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-replied-emails">0</span>
+            <span class="stat-label">Cevap Alınan</span>
+          </div>
+        </div>
+        <div class="stat-card" id="stat-rate">
+          <div class="stat-icon">📈</div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-reply-rate">0%</span>
+            <span class="stat-label">Cevap Oranı</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pipeline -->
+      <div class="section-header"><h2>Pipeline</h2></div>
+      <div class="pipeline" id="pipeline">
+        <div class="pipeline-col">
+          <div class="pipeline-title"><span class="dot dot-new"></span>Yeni <span class="badge" id="pipe-new">0</span></div>
+          <div class="pipeline-list" id="pipe-list-new"></div>
+        </div>
+        <div class="pipeline-col">
+          <div class="pipeline-title"><span class="dot dot-contacted"></span>İletişime Geçildi <span class="badge" id="pipe-contacted">0</span></div>
+          <div class="pipeline-list" id="pipe-list-contacted"></div>
+        </div>
+        <div class="pipeline-col">
+          <div class="pipeline-title"><span class="dot dot-replied"></span>Cevap Geldi <span class="badge" id="pipe-replied">0</span></div>
+          <div class="pipeline-list" id="pipe-list-replied"></div>
+        </div>
+        <div class="pipeline-col">
+          <div class="pipeline-title"><span class="dot dot-converted"></span>Dönüşüm <span class="badge" id="pipe-converted">0</span></div>
+          <div class="pipeline-list" id="pipe-list-converted"></div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="section-header"><h2>Son Aktiviteler</h2></div>
+      <div class="activity-feed" id="dashboard-activity"></div>
+    </section>
+
+    <!-- SEARCH VIEW -->
+    <section class="view" id="view-search">
+      <div class="view-header">
+        <h1>🔍 Lead Araştırma</h1>
+        <p class="view-subtitle">Hedef sektör ve kişi profilini tanımla, Apify ile potansiyel müşterileri bul</p>
+      </div>
+      <div class="search-card glass-card">
+        <div class="form-group">
+          <label for="search-industry">Sektör / Alan</label>
+          <input type="text" id="search-industry" placeholder="Örn: Restoran, E-ticaret, Hukuk Bürosu, Emlakçı...">
+        </div>
+        <div class="form-group">
+          <label for="search-target">Hedef Kişi Profili</label>
+          <input type="text" id="search-target" placeholder="Örn: Sahibi, Genel Müdür, Pazarlama Müdürü...">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="search-location">Konum</label>
+            <input type="text" id="search-location" placeholder="Örn: İstanbul, Ankara, Türkiye" value="Türkiye">
+          </div>
+          <div class="form-group">
+            <label for="search-count">Maks. Sonuç</label>
+            <input type="number" id="search-count" placeholder="10" value="10" min="1" max="50">
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" id="btn-search">
+          <span class="btn-icon">🚀</span> Araştırmayı Başlat
+        </button>
+        <div class="search-status" id="search-status"></div>
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </section>
+
+    <!-- LEADS VIEW -->
+    <section class="view" id="view-leads">
+      <div class="view-header">
+        <h1>👥 Lead'ler</h1>
+        <p class="view-subtitle">Tüm bulunan müşteri adayları</p>
+      </div>
+      <div class="toolbar">
+        <input type="text" class="search-input" id="leads-search" placeholder="Lead ara...">
+        <select class="filter-select" id="leads-filter">
+          <option value="">Tümü</option>
+          <option value="new">Yeni</option>
+          <option value="contacted">İletişime Geçildi</option>
+          <option value="replied">Cevap Geldi</option>
+          <option value="converted">Dönüşüm</option>
+          <option value="lost">Kayıp</option>
+        </select>
+      </div>
+      <div class="leads-table-wrap">
+        <table class="leads-table" id="leads-table">
+          <thead>
+            <tr>
+              <th>İsim</th><th>Şirket</th><th>E-posta</th><th>Sektör</th><th>Durum</th><th>İşlem</th>
+            </tr>
+          </thead>
+          <tbody id="leads-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- EMAILS VIEW -->
+    <section class="view" id="view-emails">
+      <div class="view-header">
+        <h1>📧 E-postalar</h1>
+        <p class="view-subtitle">Yazılan ve gönderilen tüm e-postalar</p>
+      </div>
+      <div class="emails-list" id="emails-list"></div>
+    </section>
+
+    <!-- ACTIVITY VIEW -->
+    <section class="view" id="view-activity">
+      <div class="view-header">
+        <h1>📋 Aktivite Akışı</h1>
+        <p class="view-subtitle">Tüm sistem olayları</p>
+      </div>
+      <div class="activity-feed" id="activity-feed"></div>
+    </section>
+  </main>
+
+  <!-- MODAL: Lead Detail -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal glass-card" id="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
